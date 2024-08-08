@@ -1,18 +1,20 @@
 import webview
 
-current_window = None  # Ventana actual del navegador
+current_window = None
 
-def open_video_in_browser(video_url):
-    """Abrir un video en el navegador con pywebview."""
+def open_video_in_browser(url):
+    """Abrir un video en el navegador utilizando pywebview."""
     global current_window
     if current_window:
-        current_window.eval('window.close()')  # Cierra la ventana actual en pywebview
-    
-    current_window = webview.create_window('Reproductor de Música', video_url)
+        close_window()
+    current_window = webview.create_window('Reproductor de Música', url)
     webview.start()
 
 def close_window():
-    """Cerrar la ventana actual."""
+    """Cerrar la ventana del navegador."""
     global current_window
     if current_window:
-        current_window.eval('window.close()')  # Cierra la ventana actual en pywebview
+        # Necesitamos manejar el cierre de la ventana de forma más segura.
+        # Esta línea asegura que la ventana se cierra correctamente.
+        current_window.evaluate('window.close()')
+        current_window = None

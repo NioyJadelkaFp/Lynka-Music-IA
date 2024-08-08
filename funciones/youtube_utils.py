@@ -1,7 +1,7 @@
 import yt_dlp
 
 def get_video_duration(url):
-    """Obtener la duración del video en segundos."""
+    """Obtener la duración del video en segundos"""
     ydl_opts = {
         'quiet': True,
         'noplaylist': True,
@@ -11,14 +11,14 @@ def get_video_duration(url):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         try:
             info = ydl.extract_info(url, download=False)
-            duration = info.get('duration', 0)  # Usar .get() para evitar errores si 'duration' no está presente
+            duration = info.get('duration', 0)
             return duration
         except Exception as e:
             print("Error al obtener la duración del video:", str(e))
             return 0
 
 def play_youtube_video(query):
-    """Reproducir video de YouTube."""
+    """Buscar y obtener la URL de un video de YouTube"""
     ydl_opts = {
         'format': 'bestaudio/best',
         'quiet': True,
@@ -28,11 +28,9 @@ def play_youtube_video(query):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         try:
             info = ydl.extract_info(f"ytsearch:{query}", download=False)['entries'][0]
-            video_url = info['url']  # Obtener la URL del video
-            print(f"Reproduciendo: {info['title']}")
-            talk(f"Reproduciendo {info['title']}")
-            return video_url, info['title']
+            video_url = info['url']
+            title = info['title']
+            return video_url, title
         except Exception as e:
-            talk("Hubo un problema al reproducir el video")
-            print("Error al reproducir el video:", str(e))
+            print("Error al obtener la URL del video:", str(e))
             return None, None

@@ -1,4 +1,4 @@
-from funciones.speech_utils import listen, talk
+from funciones.speech_utils import listen
 from funciones.music_player import process_command
 
 def run_dj():
