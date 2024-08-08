@@ -1,3 +1,0 @@
-para instalar todos los requemientos del proyecto.
-    ppip install spacy pyttsx3 speech_recognition yt-dlp pywebview
-    pip install spacy
