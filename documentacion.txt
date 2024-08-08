@@ -1,0 +1,2 @@
+para instalar todos los requemientos del proyecto.
+    pip install -r requirements.txt
