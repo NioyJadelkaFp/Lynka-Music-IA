@@ -1,10 +1,10 @@
 {
     "name": "Lynka",
     "version": "1.0.0",
+    "estado": "Beta",
     "description": "Una asistente con Ia que te pueda ayudar a escuhar musica",
     "author": "Nioy",
     "author_email": "nioycontactoservice@gmail.com",
     "license": "MIT",
     "url": "https://github.com/NioyJadelkaFp/Lynka-Music-IA/tree/OficialPoryecto-nioy"
-  }
-  
+}
